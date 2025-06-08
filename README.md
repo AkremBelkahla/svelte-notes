@@ -1,23 +1,73 @@
-# Svelte + Vite
+# 📝 Svelte Notes
 
-This template should help get you started developing with Svelte in Vite.
+Une application de prise de notes simple et élégante construite avec Svelte et Tailwind CSS.
 
-## Recommended IDE Setup
+![Capture d'écran de l'application](public/screenshot.png)
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## ✨ Fonctionnalités
 
-## Need an official Svelte framework?
+- 📝 Créer, modifier et supprimer des notes
+- 🔍 Recherche en temps réel
+- 🌓 Mode clair/sombre
+- 📱 Design responsive
+- 💾 Stockage local avec localStorage
+- ⚡ Rapide et légère
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## 🚀 Démarrage rapide
 
-## Technical considerations
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/votre-utilisateur/svelte-notes.git
+   cd svelte-notes
+   ```
 
-**Why use this over SvelteKit?**
+2. **Installer les dépendances**
+   ```bash
+   npm install
+   ```
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+3. **Lancer le serveur de développement**
+   ```bash
+   npm run dev
+   ```
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+4. **Ouvrir dans le navigateur**
+   L'application sera disponible à l'adresse [http://localhost:5173](http://localhost:5173)
+
+## 🛠️ Technologies utilisées
+
+- [Svelte](https://svelte.dev/) - Framework JavaScript
+- [Vite](https://vitejs.dev/) - Outil de build
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitaire
+- [PostCSS](https://postcss.org/) - Outil de transformation de styles
+- [Autoprefixer](https://github.com/postcss/autoprefixer) - Ajout automatique des préfixes vendeurs
+
+## 📦 Scripts NPM
+
+- `npm run dev` - Lance le serveur de développement
+- `npm run build` - Compile pour la production
+- `npm run preview` - Aperçu de la version de production
+- `npm run check` - Vérification avec Svelte Check
+
+## 🎨 Personnalisation
+
+### Couleurs
+
+Les couleurs peuvent être personnalisées en modifiant le fichier `tailwind.config.js`.
+
+### Police
+
+L'application utilise la police [Inter](https://rsms.me/inter/) par défaut. Vous pouvez la changer en modifiant la configuration de la police dans `tailwind.config.js`.
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
+
+## 🙏 Remerciements
+
+- [Svelte](https://svelte.dev/) pour ce framework incroyable
+- [Tailwind CSS](https://tailwindcss.com/) pour les styles
+- [Vite](https://vitejs.dev/) pour l'expérience de développement
 
 Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
 
