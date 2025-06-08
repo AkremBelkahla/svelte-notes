@@ -67,4 +67,12 @@ function createNotesStore() {
   };
 }
 
-export const notes = createNotesStore();
+const notesStore = createNotesStore();
+
+export const notes = {
+  subscribe: notesStore.subscribe,
+  addNote: notesStore.addNote,
+  updateNote: notesStore.updateNote,
+  deleteNote: notesStore.deleteNote,
+  loadNotes: notesStore.loadNotes
+};
