@@ -26,19 +26,13 @@
   }
 </script>
 
-<article class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-4 border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-200">
+<article class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 mb-4 hover:shadow-lg transition-shadow duration-200">
   <div class="flex justify-between items-start">
     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
       {note.title}
     </h3>
     <div class="flex space-x-2">
       <button
-        on:click|stopPropagation
-        on:keydown|stopPropagation
-        on:keyup|stopPropagation
-        on:keypress|stopPropagation
-        on:mousedown|stopPropagation
-        on:mouseup|stopPropagation
         on:click={() => isEditing = true}
         class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 focus:outline-none"
         aria-label="Modifier la note"
@@ -59,22 +53,30 @@
     </div>
   </div>
   
-  <div class="prose dark:prose-invert max-w-none mb-3">
+  <div class="mb-3">
     {#if note.content}
       <p class="whitespace-pre-line text-gray-700 dark:text-gray-300">
         {note.content}
       </p>
     {:else}
       <p class="whitespace-pre-line text-gray-700 dark:text-gray-300">
-        <span class="text-gray-400 italic">Aucun contenu</span>
+        <span class="text-gray-400 italic">Description ici</span>
       </p>
     {/if}
   </div>
   
-  <div class="text-xs text-gray-500 dark:text-gray-400">
-    <span>Créé le {formatDate(note.createdAt)}</span>
-    {#if note.updatedAt !== note.createdAt}
-      <span> • Modifié le {formatDate(note.updatedAt)}</span>
+  <div class="flex justify-between items-center text-xs">
+    <div class="text-gray-500 dark:text-gray-400">
+      <span>Modifié: {formatDate(note.updatedAt)}</span>
+    </div>
+    
+    {#if note.reminderDate}
+      <div class="text-orange-500 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Rappel: {formatDate(note.reminderDate)}</span>
+      </div>
     {/if}
   </div>
   

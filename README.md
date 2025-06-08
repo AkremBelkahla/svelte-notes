@@ -2,8 +2,6 @@
 
 Une application de prise de notes simple et élégante construite avec Svelte et Tailwind CSS.
 
-![Capture d'écran de l'application](public/screenshot.png)
-
 ## ✨ Fonctionnalités
 
 - 📝 Créer, modifier et supprimer des notes

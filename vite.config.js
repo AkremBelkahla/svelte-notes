@@ -17,12 +17,7 @@ export default defineConfig({
     host: true
   },
   css: {
-    postcss: './postcss.config.js',
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "./src/app.css";`
-      }
-    }
+    postcss: './postcss.config.js'
   },
   build: {
     outDir: 'dist',
