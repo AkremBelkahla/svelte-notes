@@ -13,9 +13,9 @@ Une application de prise de notes simple et élégante construite avec Svelte et
 - 💾 Stockage local avec localStorage
 - ⚡ Rapide et légère
 
-## 🚀 Démarrage rapide
+## 🚀 Démarrage rapide 
 
-1. **Cloner le dépôt**
+1. **Cloner le dépôt** 
    ```bash
    git clone https://github.com/votre-utilisateur/svelte-notes.git
    cd svelte-notes
