@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { notes, loadNotes } from './stores/notes';
+  import { notes } from './stores/notes';
   import { theme, toggleTheme } from './stores/theme';
   import NoteForm from './components/NoteForm.svelte';
   import NoteList from './components/NoteList.svelte';
@@ -15,7 +15,7 @@
   
   // Charger les notes au démarrage
   onMount(() => {
-    loadNotes();
+    notes.loadNotes();
   });
 </script>
 
@@ -83,12 +83,35 @@
   
   /* Styles pour les éléments de formulaire */
   :global(input), :global(textarea), :global(select) {
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors;
+    outline: none;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  
+  :global(input:focus), :global(textarea:focus), :global(select:focus) {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
+    border-color: transparent;
   }
   
   /* Styles pour les boutons */
   :global(button) {
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors;
+    outline: none;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  
+  :global(button:focus) {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
   }
   
   /* Styles pour le mode sombre */
@@ -98,19 +121,35 @@
   
   /* Styles pour les liens */
   :global(a) {
-    @apply text-blue-600 dark:text-blue-400 hover:underline;
+    color: rgb(37 99 235);
+    text-decoration: none;
+  }
+  
+  :global(a:hover) {
+    text-decoration: underline;
+  }
+  
+  :global(.dark a) {
+    color: rgb(96 165 250);
   }
   
   /* Styles pour les éléments de formulaire en mode sombre */
   :global(.dark input), 
   :global(.dark textarea), 
   :global(.dark select) {
-    @apply bg-gray-700 border-gray-600 text-white placeholder-gray-400;
+    background-color: rgb(55 65 81);
+    border-color: rgb(75 85 99);
+    color: white;
+  }
+  
+  :global(.dark input::placeholder),
+  :global(.dark textarea::placeholder) {
+    color: rgb(156 163 175);
   }
   
   :global(.dark input:focus), 
   :global(.dark textarea:focus), 
   :global(.dark select:focus) {
-    @apply ring-blue-500;
+    --tw-ring-color: rgb(59 130 246);
   }
 </style>

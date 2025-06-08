@@ -67,12 +67,26 @@ function createNotesStore() {
   };
 }
 
+/**
+ * @typedef {Object} Note
+ * @property {string} id - Identifiant unique de la note
+ * @property {string} title - Titre de la note
+ * @property {string} content - Contenu de la note
+ * @property {string} createdAt - Date de création au format ISO
+ * @property {string} updatedAt - Date de mise à jour au format ISO
+ */
+
+/**
+ * @typedef {Object} NotesStore
+ * @property {function(function(Note[]): () => void): () => void} subscribe - Fonction pour s'abonner aux changements
+ * @property {function({title: string, content: string}): void} addNote - Ajoute une nouvelle note
+ * @property {function(string, {title: string, content: string}): void} updateNote - Met à jour une note existante
+ * @property {function(string): void} deleteNote - Supprime une note
+ * @property {function(): void} loadNotes - Charge les notes depuis le localStorage
+ */
+
+/** @type {NotesStore} */
 const notesStore = createNotesStore();
 
-export const notes = {
-  subscribe: notesStore.subscribe,
-  addNote: notesStore.addNote,
-  updateNote: notesStore.updateNote,
-  deleteNote: notesStore.deleteNote,
-  loadNotes: notesStore.loadNotes
-};
+// Exportation du store
+export const notes = notesStore;

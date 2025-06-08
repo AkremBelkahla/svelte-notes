@@ -1,25 +1,27 @@
 <script>
   import { notes } from '../stores/notes';
+  import NoteForm from './NoteForm.svelte';
   
   export let note;
   export let isEditing = false;
   
   // Formater la date pour l'affichage
   const formatDate = (dateString) => {
-    const options = { 
-      year: 'numeric', 
-      month: 'short', 
+    const date = new Date(dateString);
+    return date.toLocaleString('fr-FR', {
+      year: 'numeric',
+      month: 'short',
       day: 'numeric',
-      hour: '2-digit', 
-      minute: '2-digit' 
-    };
-    return new Date(dateString).toLocaleDateString('fr-FR', options);
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
   };
   
   // Supprimer la note
   function handleDelete() {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette note ?')) {
-      $notes.deleteNote(note.id);
+      notes.deleteNote(note.id);
     }
   }
 </script>
@@ -58,16 +60,22 @@
   </div>
   
   <div class="prose dark:prose-invert max-w-none mb-3">
-    <p class="whitespace-pre-line text-gray-700 dark:text-gray-300">
-      {note.content || <span class="text-gray-400 italic">Aucun contenu</span>}
-    </p>
+    {#if note.content}
+      <p class="whitespace-pre-line text-gray-700 dark:text-gray-300">
+        {note.content}
+      </p>
+    {:else}
+      <p class="whitespace-pre-line text-gray-700 dark:text-gray-300">
+        <span class="text-gray-400 italic">Aucun contenu</span>
+      </p>
+    {/if}
   </div>
   
   <div class="text-xs text-gray-500 dark:text-gray-400">
     <span>Créé le {formatDate(note.createdAt)}</span>
-    {note.updatedAt !== note.createdAt && (
+    {#if note.updatedAt !== note.createdAt}
       <span> • Modifié le {formatDate(note.updatedAt)}</span>
-    )}
+    {/if}
   </div>
   
   {#if isEditing}

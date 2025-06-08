@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   darkMode: 'class',
   content: [
     "./index.html",
@@ -8,7 +8,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Couleurs personnalisées
         primary: {
           50: '#f0f9ff',
           100: '#e0f2fe',
@@ -23,11 +22,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       boxShadow: {
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        card: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       },
       transitionProperty: {
         'height': 'height',
