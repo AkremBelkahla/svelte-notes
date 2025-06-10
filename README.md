@@ -1,4 +1,4 @@
-# 📝 Svelte Notes
+# 📝 Svelte Notes 
 
 Une application de prise de notes simple et élégante construite avec Svelte et Tailwind CSS.
 
